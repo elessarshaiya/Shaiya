@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="34">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>615</ID>
+      <Description>"general chat block for map"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048)
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+cmp eax,0 // general chat
+je block_by_map
+
+//cmp eax,0 // general chat
+//je block_by_map
+//cmp eax,1 // unknown Chat 
+//je block_by_map
+//cmp eax,2 // Trade Chat
+//je block_by_map
+//cmp eax,3 // Guild Chat
+//je block_by_map
+//cmp eax,4 // Party Chat 
+//je block_by_map
+//cmp eax,5 // Whisper Chat 
+//je block_by_map
+//cmp eax,6 // Yelling Chat 
+//je block_by_map
+//cmp eax,7 // Area Chat
+//je block_by_map
+
+originalcode:
+jmp dword ptr [eax*4+0047FC80]
+
+block_by_map:
+cmp byte ptr [ebp+160],(int)45 // mapid
+je 0047FC57 // block
+jmp originalcode
+
+exit:
+jmp returnhere
+
+"ps_game.exe"+7F4C1:
+jmp newmem
+nop
+nop
+returnhere:
+
+
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"ps_game.exe"+7F4C1:
+jmp dword ptr [eax*4+0047FC80]
+//Alt: db FF 24 85 80 FC 47 00
+</AssemblerScript>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+</CheatTable>
