@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="34">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>558</ID>
+      <Description>"block items"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+alloc(newmem,128)
+label(return)
+label(exit)
+label(maps)
+label(level)
+
+newmem:
+mov ecx,[ebx+30]
+cmp [ecx],#100047 //skill reset stone
+je maps
+
+exit:
+cmp dword ptr [ecx+000000A0],1A
+jmp return
+
+maps:
+cmp byte ptr[ebp+00000160],#45 // AH
+je level
+
+level:
+cmp byte ptr [ebp+136],#55 // If higher than level 55
+ja 0047469F
+jmp exit
+
+00472E20:
+jmp newmem
+nop
+nop
+nop
+nop
+nop
+return:
+
+[DISABLE]
+dealloc(newmem)
+00472E20:
+mov ecx,[ebx+30]
+cmp dword ptr [ecx+000000A0],1A
+
+</AssemblerScript>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+</CheatTable>
