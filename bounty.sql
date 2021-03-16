@@ -77,8 +77,7 @@ DECLARE @CheckKills varchar(max)
  IF (@CheckKills = '50') BEGIN SET @Sentence = 'God Mode!' END
 
 -- if you want to do it if there is a bounty then: (20 and 21)
--- 20 IF (SELECT Top 1 Charname FROM PS_GameLog.dbo.Bounty WHERE Charname = @Charname) IS NOT NULL
--- 20 BEGIN
+-- if (SELECT Top 1 Charname FROM PS_GameLog.dbo.Bounty WHERE Charname = @Charname) IS NOT NULL
 DECLARE @BountyPointsReward varchar(max), @BountyPointToAdd varchar (max)
 
 SET @BountyPointToAdd = '250'
