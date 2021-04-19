@@ -1,0 +1,33 @@
+[ENABLE]
+alloc(newmem,128)
+label(returnhere)
+label(exit)
+define(buff_transparency,50FFFFFF) // 50 Opacity - FFFFF Color
+
+newmem:
+push buff_transparency
+mov ecx,ebp
+call 004A1810
+
+exit:
+jmp returnhere
+
+
+004C048C:
+jmp newmem
+nop
+nop
+nop
+nop
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+
+dealloc(newmem)
+004C048C:
+push -01
+mov ecx,ebp
+call Game.exe+A1810
