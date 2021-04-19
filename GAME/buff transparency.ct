@@ -12,7 +12,6 @@ call 004A1810
 exit:
 jmp returnhere
 
-
 004C048C:
 jmp newmem
 nop
@@ -22,10 +21,7 @@ nop
 returnhere:
 
 
- 
- 
 [DISABLE]
-
 dealloc(newmem)
 004C048C:
 push -01
