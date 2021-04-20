@@ -1,4 +1,5 @@
-{ Game   : Game.exe
+{ 
+  Game   : Game.exe
   Version: 5.4
   Date   : 2021-04-19
   Remove Party obstacle (movement stone)
