@@ -1,0 +1,23 @@
+// 0049B462 Easy and Normal mode level up stat point
+// 0049B46B Hard mode level up stat point
+// 0049B475 Ultimate mode level up stat point
+
+// 0049B48F Easy and Normal mode level up skill point
+// 0049B5CB Hard mode level up skill point
+// 0049B7B0 should be Ultimate mode level up skill point
+
+[ENABLE]
+// Hard Mode level up stat point
+ps_game.exe+9B46B:
+add word ptr [esi+00000138],09
+// Hard mode level up skill point
+ps_game.exe+9B5CB:
+add word ptr [esi+0000013A],05
+
+[DISABLE]
+ps_game.exe+9B46B:
+add word ptr [esi+00000138],07
+
+
+ps_game.exe+9B5CB:
+add word ptr [esi+0000013A],04
