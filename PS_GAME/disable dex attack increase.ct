@@ -1,0 +1,34 @@
+[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048)
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+originalcode:
+fld qword ptr [value]
+
+exit:
+jmp returnhere
+
+value:
+dd (float)0,00
+
+00460EBE:
+jmp newmem
+nop
+returnhere:
+
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+00460EBE:
+fld qword ptr [00574048]
+//Alt: db DD 05 78 3F 57 00
