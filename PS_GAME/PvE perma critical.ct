@@ -1,0 +1,27 @@
+//Bowie 12/2019
+[ENABLE]
+00459B13: //magic attacks
+nop
+nop
+
+00459D8D: //range attacks
+nop
+nop
+nop
+nop
+nop
+nop
+
+00459FFF: //melee attacks
+nop
+nop
+
+[DISABLE]
+00459B13:
+jnl 00459B6E
+
+00459D8D:
+jnl 00459E22
+
+00459FFF:
+jnl 0045A05A
