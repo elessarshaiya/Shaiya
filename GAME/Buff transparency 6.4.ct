@@ -1,0 +1,35 @@
+{
+  Game   : Game.exe
+  Version: 6.4
+  Date   : 2021-04-19
+}
+
+[ENABLE]
+alloc(newmem,128)
+label(returnhere)
+label(exit)
+define(buff_transparency,50FFFFFF) // 50 Opacity - FFFFF Color
+
+newmem:
+push buff_transparency
+mov ecx,ebp
+call 04B57B0
+
+exit:
+jmp returnhere
+
+04D7447:
+jmp newmem
+nop
+nop
+nop
+nop
+returnhere:
+
+
+[DISABLE]
+dealloc(newmem)
+04D7447:
+push -01
+mov ecx,ebp
+call 04B57B0
