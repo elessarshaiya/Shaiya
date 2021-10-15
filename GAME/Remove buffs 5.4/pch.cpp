@@ -1,4 +1,5 @@
-﻿// Remove used buffs on the screen (whit using shift) from ep5
+// Remove used buffs on the screen (whit using shift) from ep5
+// decoded don't thank me
 
 #include "pch.h"
 
