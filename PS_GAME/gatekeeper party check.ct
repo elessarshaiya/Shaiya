@@ -1,0 +1,47 @@
+{
+  Date   : 2022-01-07
+  Author : Elessar
+}
+
+[ENABLE]
+alloc(newmem,2048)
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem:
+push ecx
+mov ecx,[eax+00000124] // target map
+cmp ecx,#1
+pop ecx
+je check_party
+
+originalcode:
+cmp [eax+00000124],cx
+
+exit:
+jmp returnhere
+
+
+check_party:
+push ecx
+mov ecx,[ebp+000017F4] // party
+test ecx,ecx
+pop ecx
+jne ps_game.exe+77999
+jmp originalcode
+
+
+"ps_game.exe"+76C37:
+jmp newmem
+nop
+nop
+returnhere:
+
+
+
+
+[DISABLE]
+dealloc(newmem)
+"ps_game.exe"+76C37:
+cmp [eax+00000124],cx
