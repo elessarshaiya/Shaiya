@@ -28,7 +28,7 @@ push ecx
 mov ecx,[ebp+000017F4] // party
 test ecx,ecx
 pop ecx
-jne ps_game.exe+77999
+jne 00477999
 jmp originalcode
 
 
@@ -37,8 +37,6 @@ jmp newmem
 nop
 nop
 returnhere:
-
-
 
 
 [DISABLE]
