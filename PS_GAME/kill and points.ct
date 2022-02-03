@@ -1,0 +1,383 @@
+ [ENABLE]
+
+// Rank index
+// Kills required
+// Stat points for normal mode
+// Stat points for hard mode
+// Stat points for ultimate mode
+
+00581FC8:
+dd #1
+dd #1
+dd #1
+dd #1
+dd #1
+
+dd #2
+dd #50000
+dd #10
+dd #10
+dd #10
+
+dd #3
+dd #100000
+dd #20
+dd #20
+dd #20
+
+dd #4
+dd #500000
+dd #20
+dd #20
+dd #20
+
+dd #5
+dd #1000000
+dd #30
+dd #30
+dd #30
+
+dd #6
+dd #10000000
+dd #30
+dd #30
+dd #30
+
+dd #7
+dd #30000000
+dd #30
+dd #30
+dd #30
+
+dd #8
+dd #50000000
+dd #30
+dd #30
+dd #30
+
+dd #9
+dd #100000000
+dd #30
+dd #30
+dd #30
+
+dd #10
+dd #200000000
+dd #30
+dd #30
+dd #30
+
+dd #11
+dd #300000000
+dd #40
+dd #40
+dd #40
+
+dd #12
+dd #400000000
+dd #40
+dd #40
+dd #40
+
+dd #13
+dd #600000000
+dd #40
+dd #40
+dd #40
+
+dd #14
+dd #800000000
+dd #40
+dd #40
+dd #40
+
+dd #15
+dd #1200000000
+dd #40
+dd #40
+dd #40
+
+dd #16
+dd #1250000000
+dd #50
+dd #50
+dd #50
+
+dd #17
+dd #1300000000
+dd #50
+dd #50
+dd #50
+
+dd #18
+dd #1350000000
+dd #50
+dd #50
+dd #50
+
+dd #19
+dd #1400000000
+dd #50
+dd #50
+dd #50
+
+dd #20
+dd #1450000000
+dd #19
+dd #28
+dd #28
+
+dd #21
+dd #1500000000
+dd #50
+dd #50
+dd #50
+
+dd #22
+dd #1550000000
+dd #50
+dd #50
+dd #50
+
+dd #23
+dd #1600000000
+dd #50
+dd #50
+dd #50
+
+dd #24
+dd #1650000000
+dd #50
+dd #50
+dd #50
+
+dd #25
+dd #1700000000
+dd #50
+dd #50
+dd #50
+
+dd #26
+dd #1750000000
+dd #50
+dd #50
+dd #50
+
+dd #27
+dd #1800000000
+dd #50
+dd #50
+dd #50
+
+dd #28
+dd #1850000000
+dd #50
+dd #50
+dd #50
+
+dd #29
+dd #1900000000
+dd #50
+dd #50
+dd #50
+
+dd #30
+dd #1950000000
+dd #50
+dd #50
+dd #50
+
+dd #31
+dd #2000000000
+dd #100
+dd #100
+dd #100
+
+[DISABLE]
+
+00581FC8:
+dd #1
+dd #1
+dd #1
+dd #1
+dd #1
+
+dd #2
+dd #50
+dd #2
+dd #3
+dd #3
+
+dd #3
+dd #300
+dd #3
+dd #5
+dd #5
+
+dd #4
+dd #1000
+dd #5
+dd #7
+dd #7
+
+dd #5
+dd #5000
+dd #10
+dd #12
+dd #12
+
+dd #6
+dd #10000
+dd #15
+dd #15
+dd #18
+
+dd #7
+dd #20000
+dd #16
+dd #18
+dd #20
+
+dd #8
+dd #30000
+dd #16
+dd #21
+dd #22
+
+dd #9
+dd #40000
+dd #16
+dd #21
+dd #24
+
+dd #10
+dd #50000
+dd #17
+dd #22
+dd #26
+
+dd #11
+dd #70000
+dd #17
+dd #22
+dd #26
+
+dd #12
+dd #90000
+dd #17
+dd #22
+dd #26
+
+dd #13
+dd #110000
+dd #18
+dd #23
+dd #27
+
+dd #14
+dd #130000
+dd #18
+dd #23
+dd #27
+
+dd #15
+dd #150000
+dd #18
+dd #23
+dd #27
+
+dd #16
+dd #200000
+dd #19
+dd #24
+dd #28
+
+dd #17
+dd #250000
+dd #19
+dd #24
+dd #28
+
+dd #18
+dd #300000
+dd #19
+dd #24
+dd #28
+
+dd #19
+dd #350000
+dd #19
+dd #24
+dd #28
+
+dd #20
+dd #400000
+dd #19
+dd #24
+dd #28
+
+dd #21
+dd #450000
+dd #19
+dd #24
+dd #28
+
+dd #22
+dd #500000
+dd #20
+dd #25
+dd #29
+
+dd #23
+dd #550000
+dd #20
+dd #25
+dd #29
+
+dd #24
+dd #600000
+dd #20
+dd #25
+dd #29
+
+dd #25
+dd #650000
+dd #20
+dd #25
+dd #29
+
+dd #26
+dd #700000
+dd #20
+dd #25
+dd #29
+
+dd #27
+dd #750000
+dd #21
+dd #26
+dd #30
+
+dd #28
+dd #800000
+dd #21
+dd #26
+dd #30
+
+dd #29
+dd #850000
+dd #21
+dd #26
+dd #30
+
+dd #30
+dd #900000
+dd #21
+dd #26
+dd #30
+
+dd #31
+dd #1000000
+dd #21
+dd #26
+dd #30
