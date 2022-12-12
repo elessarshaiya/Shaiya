@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="42">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>0</ID>
+      <Description>"block open raid"</Description>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+alloc(create_raid,2048)
+
+
+create_raid:
+cmp word ptr [ebp+160],#35
+je 00475943
+
+movzx ecx,byte ptr [ebx+03]
+mov eax,[ebp+000017F4]
+jmp 004758E6
+
+
+004758DC:
+jmp create_raid
+nop
+nop
+nop
+nop
+nop
+
+
+
+
+
+[DISABLE]
+dealloc(create_raid)
+004758DC:
+movzx ecx,byte ptr [ebx+03]
+mov eax,[ebp+000017F4]
+</AssemblerScript>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+</CheatTable>
