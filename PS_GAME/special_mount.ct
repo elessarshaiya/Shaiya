@@ -1,0 +1,44 @@
+{ 
+  For   : ps_game
+  Version: 5.4
+  Date   : 2023-05-27
+  Author : Elessar
+
+ ignores time and effect for custom mount
+}
+
+ 
+[ENABLE]
+alloc(newmem,2048)
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem:
+cmp byte ptr[eax+41],(int)10
+je special_mount
+
+originalcode:
+mov ecx,[eax+30]
+cmp byte ptr [ecx+30],03
+
+exit:
+jmp returnhere
+
+
+special_mount:
+jmp 0047715B
+
+
+0047713E:
+jmp newmem
+nop
+nop
+returnhere:
+
+
+[DISABLE]
+dealloc(newmem)
+0047713E:
+mov ecx,[eax+30]
+cmp byte ptr [ecx+30],03
