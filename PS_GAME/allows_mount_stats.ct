@@ -1,0 +1,15 @@
+[ENABLE]
+004685E6:
+cmp ebx,#14 {item swich}
+004685FD:
+cmp eax,#14 {item swich}
+00461526:
+cmp ebp,#14 {first login}
+ 
+[DISABLE]
+004685E6:
+cmp ebx,#13
+004685FD:
+cmp eax,#13
+00461526:
+cmp ebp,#13
