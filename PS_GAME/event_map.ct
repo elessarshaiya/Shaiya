@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="46">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>914</ID>
+      <Description>"event map"</Description>
+      <Options moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1"/>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>913</ID>
+          <Description>"event status 1= open 2= teleport everyone"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>Byte</VariableType>
+          <Address>event</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>912</ID>
+          <Description>"event map control"</Description>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+alloc(newmem,2048)
+label(returnhere)
+label(originalcode)
+label(exit)
+registersymbol(event)
+alloc(event,4)
+
+newmem:
+push ecx
+mov ecx,[eax+00000124]
+cmp ecx,#35 // target map id
+pop ecx
+je event_status
+
+originalcode:
+cmp [eax+00000124],cx
+
+exit:
+jmp returnhere
+
+
+event_status:
+cmp [event],1
+je originalcode
+push ecx
+push edx
+mov ecx,ebp
+mov edx,warningevent
+push 30
+push edx
+call 004ED0E0
+pop edx
+pop ecx
+jmp 00477999
+
+
+warningevent:
+db 0B F9 20
+db 'This event does not active yet.'
+db 00
+
+
+"ps_game.exe"+76C37:
+jmp newmem
+nop
+nop
+returnhere:
+
+
+[DISABLE]
+dealloc(newmem)
+unregistersymbol(event)
+dealloc(event,4)
+"ps_game.exe"+76C37:
+cmp [eax+00000124],cx
+
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>915</ID>
+          <Description>"teleport everyone"</Description>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+alloc(newmem,2048)
+label(exit)
+
+newmem:
+cmp word ptr [edi+160],#35 // Map
+jne exit
+
+cmp byte ptr [edi+17F4],#0
+je teleport_player
+
+pushad
+pushfd
+mov ecx,[edi+17f4] // remove party
+mov eax,edi
+call 0044f5f0
+popfd
+popad
+
+
+teleport_player:
+mov [edi+000058B8],1//Activator
+mov [edi+000058B4],1//Activator
+mov [edi+000058BC],#42//Target Map
+mov dword ptr [edi+000058C0],(float)60
+mov dword ptr [edi+000058C4],(float)2
+mov dword ptr [edi+000058C8],(float)60
+
+
+exit:
+mov eax,[edi+000058B8]
+jmp 0049DD7F
+
+
+0049DD79:
+jmp newmem
+nop
+
+[DISABLE]
+dealloc(newmem)
+0049DD79:
+mov eax,[edi+000058B8]
+
+</AssemblerScript>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+</CheatTable>
