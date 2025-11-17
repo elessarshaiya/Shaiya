@@ -1,0 +1,77 @@
+[ENABLE]
+alloc(newmem,1024,0047F465)
+label(returnhere)
+label(blockchat)
+
+
+define(BlockUID1, #1037)
+// define(BlockUID2, 44444)   // example – you can add more
+
+newmem:
+// --- Read UserUID from CUser (EBP = CUser*) ---
+push eax
+push edx
+mov eax,[ebp+0000582C]    // EAX = dwUserUID of this user
+// --- Compare against blocked UIDs ---
+cmp eax,BlockUID1
+je  blockchat
+
+
+// If you add BlockUID2, BlockUID3, ... just copy these lines:
+//   cmp eax,BlockUID2
+//   je  blockchat
+
+// No match → restore registers and execute original code
+pop edx
+pop eax
+
+// Original instructions we overwrote
+mov eax,[ebp+00005820]
+mov [esp+10],esi
+
+jmp returnhere
+
+
+blockchat:
+// UserUID matched → drop the chat packet completely
+pop edx
+pop eax
+jmp 0047FC57// common return of CUser::PacketChatE (no chat processed)
+
+
+returnhere:
+jmp 0047F46F// continue with normal flow (cmp eax,esi)
+
+
+// ===== OPTIONAL: CharName system (for reference only) =====
+//
+// If you ever want to block by character name instead of UserUID,
+// this is how the name is accessed in this function:
+//
+//   ; EBP = CUser*
+//   ; Character name buffer is at [EBP+0x184] in this ps_game
+//   ;
+//   ; lea eax,[ebp+00000184]     ; EAX = pointer to char name string
+//   ; mov ecx,BlockedName        ; ECX = "blocked" name
+//   ; ... compare loop ...
+//   ; if equal → jmp 0047FC57
+//
+// We keep this here only as a comment. In this script we rely on
+// UserUID, which is stable even if the player renames the character.
+
+
+
+0047F465:
+jmp newmem
+nop
+nop
+nop
+nop
+nop
+
+[DISABLE]
+dealloc(newmem)
+0047F465:
+mov eax,[ebp+00005820]
+mov [esp+10],esi
+
